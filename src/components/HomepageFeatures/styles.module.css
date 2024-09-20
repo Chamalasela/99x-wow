@@ -1,0 +1,77 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
+.frameworksWrapper {
+  background-color: var(--ifm-light-bg);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+.frameworksTitleSub {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #ff615a;
+}
+.frameworksTitle {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--ifm-text);
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+.frameworks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.frameworkCard {
+  background-color:#EAEDEF;
+  border-radius: 8px;
+  padding: 1.5rem;
+  flex-basis: 20%;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: ease 0.3s all;
+  min-width: 375px;
+}
+.frameworkCard p{
+  color: #000000;
+}
+.freameworkCardImg {
+  text-align: center;
+  min-height: 200px;
+}
+.freameworkCardDetails{
+  text-align: center;
+  min-height: 130px;
+}
+.frameworkCard:hover,
+.frameworkCard:focus {
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02);
+  text-decoration: none;
+}
+
+.frameworkCard h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #3b0a86;
+}
