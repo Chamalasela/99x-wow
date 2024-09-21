@@ -1,7 +1,32 @@
-<<<<<<< HEAD
-# Website
+# 99x WoW (Way of Work)
+
+Let's take a look at **99x wow model**.
+
+## Getting Started
+
+99X has specialized in building software products and platforms for over a decade, amassing extensive knowledge on how to successfully deliver software products. This knowledge base aims to share that expertise for the benefit of Xians and others.
+
+This repository includes has details of below frameworks and guidelines.
+
+- 99X Engineering excellence framework
+- 99x Well Architecture framework
+- 99X Engineering Review Guidelines
+- 99x Delivery framework
+- 99X Winning Product Platform
+
+## Who can contribute
+
+// Add who can contribute and how they can use the content
+
+## How to contribute
+
+//Add the contribution guideline, PR policy etc
+
+## How this site is build
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+
+// Add how docusarus site can be build locally if anyone wants to do local deployment
 
 ### Installation
 
@@ -40,6 +65,3 @@ $ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-=======
-# 99x-wow
->>>>>>> 2cfe745cf6565a2da1c80e95337faa9cdd0d14cb
