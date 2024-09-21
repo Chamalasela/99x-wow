@@ -1,4 +1,0 @@
----
-id: devops
-title: DevOps
----

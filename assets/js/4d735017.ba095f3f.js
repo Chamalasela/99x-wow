@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_99_x_wow_local_git=self.webpackChunk_99_x_wow_local_git||[]).push([[2054],{1501:o=>{o.exports=JSON.parse('{"metadata":{"permalink":"/99x-wow/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);

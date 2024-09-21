@@ -1,0 +1,1892 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-facilitated-teams/engineering/architecting/99x-well-architected-framework" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.5.2">
+<title data-rh="true">99x Well Architected Framework | Way of work</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://chamalasela.github.io/99x-wow/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://chamalasela.github.io/99x-wow/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://chamalasela.github.io/99x-wow/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="99x Well Architected Framework | Way of work"><meta data-rh="true" name="description" content="Abstract and Introduction"><meta data-rh="true" property="og:description" content="Abstract and Introduction"><link data-rh="true" rel="icon" href="/99x-wow/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://chamalasela.github.io/99x-wow/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework"><link data-rh="true" rel="alternate" href="https://chamalasela.github.io/99x-wow/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework" hreflang="en"><link data-rh="true" rel="alternate" href="https://chamalasela.github.io/99x-wow/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/99x-wow/blog/rss.xml" title="Way of work RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/99x-wow/blog/atom.xml" title="Way of work Atom Feed"><link rel="stylesheet" href="/99x-wow/assets/css/styles.28cd22fd.css">
+<script src="/99x-wow/assets/js/runtime~main.8544b03d.js" defer="defer"></script>
+<script src="/99x-wow/assets/js/main.ca3cb463.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const n=new URLSearchParams(window.location.search).entries();for(var[t,e]of n)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/99x-wow/"><div class="navbar__logo"><img src="/99x-wow/img/logo.png" alt="99x" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/99x-wow/img/logo.png" alt="99x" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">WoW</b></a></div><div class="navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/99x-wow/docs/intro">Knowlege Base</a><a href="https://github.com/chamalasela/99x-wow" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Contribute<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Switch between dark and light mode (currently light mode)" aria-label="Switch between dark and light mode (currently light mode)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/99x-wow/docs/intro">99x WoW (Way of Work)</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/99x-wow/docs/category/facilitated-teams">facilitated-teams</a><button aria-label="Collapse sidebar category &#x27;facilitated-teams&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/">compliance</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/delivery/methodologies/">delivery</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework">engineering</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework">architecting</a></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework">99x Well Architected Framework</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/architecting-new-products">Architecting new products</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/architecture-assessment/due-diligence-process">architecture-assessment</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/99x-wow/docs/">Architecting at 99x</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/architecture-evaluation/evaluation-overview">architecture-evaluation</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/architecture-health/health-checklist">architecture-health</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/case-studies/design-system">case-studies</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/focus-areas/cloud-architecture">focus-areas</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/arthitecture-process">Arthitecture Process</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/kickstarters/aws-microservices/aws-microservices-overview">kickstarters</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/managing-the-debt">Managing technical debt</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/architecting/our-process/continuous-architecture">our-process</a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/engineering/dev/code-quality-guidelines/">dev</a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/99x-wow/docs/facilitated-teams/reviews/code-quality-analysis/">reviews</a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/99x-wow/docs/category/tutorial---basics">Tutorial - Basics</a><button aria-label="Expand sidebar category &#x27;Tutorial - Basics&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/99x-wow/docs/category/product-experience">product-experience</a><button aria-label="Expand sidebar category &#x27;product-experience&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/99x-wow/docs/category/tutorial---extras">Tutorial - Extras</a><button aria-label="Expand sidebar category &#x27;Tutorial - Extras&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/99x-wow/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/99x-wow/docs/category/facilitated-teams"><span itemprop="name">facilitated-teams</span></a><meta itemprop="position" content="1"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">engineering</span><meta itemprop="position" content="2"></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">architecting</span><meta itemprop="position" content="3"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">99x Well Architected Framework</span><meta itemprop="position" content="4"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>99x Well Architected Framework</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="abstract-and-introduction">Abstract and Introduction<a href="#abstract-and-introduction" class="hash-link" aria-label="Direct link to Abstract and Introduction" title="Direct link to Abstract and Introduction">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="abstract">Abstract<a href="#abstract" class="hash-link" aria-label="Direct link to Abstract" title="Direct link to Abstract">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h3>
+<p>99X well architecture framework is designed for building market-winning products. This framework will guide you through the architectural best practices by looking at it from four different views. These are;</p>
+<ul>
+<li>
+<p>Business architecture - focuses on customer success and market sense</p>
+</li>
+<li>
+<p>Product architecture - focuses on technology, data, and nonfunctional requirement</p>
+</li>
+<li>
+<p>Infrastructure architecture - focuses on the deployment/release pipelines, configuration transformation and management, automation and optimized lead-time into production, release security, release validation, release roll-back and release management strategies without being limited to cloud environments</p>
+</li>
+<li>
+<p>Production architecture - focuses on maintaining a system in production. Involving in the day-to-day smooth running of the system.</p>
+</li>
+</ul>
+<p>The 99X well architecture framework describes key concepts, design principles, and architectural best practices for designing and developing a product that can run on any platform. By addressing relevant quality attributes, which is specific to each pillars, the stakeholders can clarify almost every gray areas to come up with right architecture style and patterns.</p>
+<p>Further, by answering few fundamental questions lean how to use right architectural style, patterns, and technologies. As well as it will guide to take the right decisions when designing an architecture for a specific requirement.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="architecture-process">Architecture process<a href="#architecture-process" class="hash-link" aria-label="Direct link to Architecture process" title="Direct link to Architecture process">​</a></h2>
+<p>Designing and building a right solution for a specific business requirement is a complex task. One way is to identify clear separation to make it simpler. Having a basic understanding of what needs to consider of each separation, will help to build a most suitable architecture for the complex business requirement.</p>
+<p>The architecture of a system describes its non-functional requirements as style, patterns, and concepts. The technologies will describe how to implement functional requirements with addressing non-functional requirements. A proper software architecture and design needs to consider several factors. With 99 X, well architecture framework, we mention them as architecture views.</p>
+<p>First, we need to have a proper idea of the business needs. What kind of problem that the customer going to be solved. What are the quality attributes that we need to address for the business need. Here, we called it as “Business Architecture”. From this view the 99X well architecture framework looks for the business need of the customer with applying relevant quality attributes.</p>
+<p>Once we develop the business architecture, need to think of non-functional requirements and functional requirements. Based on those it needs to be identified which architectural style and architectural patterns that full-fill this requirements. To address this the relevant quality attributes will help to identify the parts to consider. Based on 99x well architecture framework, we call this view as “Product Architecture” .</p>
+<p>As the next view, need to think about the infrastructure that most applicable for our product architecture. Infrastructure are the technologies, which helps to develop functional and non-functional requirements. Based on 99x well-known architecture, we call this view as “Infrastructure Architecture”.</p>
+<p>Final step is how to make our product to day today running smoothly. To do this we need to address several quality attributes. This view is most important to make the availability, fault tolerance, and smoothly running the product with adding values to the customer. Based on 99x well architecture, we call this view as the “Production Architecture”.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="architecture-views">Architecture Views<a href="#architecture-views" class="hash-link" aria-label="Direct link to Architecture Views" title="Direct link to Architecture Views">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="business-architecture">Business Architecture<a href="#business-architecture" class="hash-link" aria-label="Direct link to Business Architecture" title="Direct link to Business Architecture">​</a></h3>
+<p>“Why are we building this product?”</p>
+<p>“What is the problem that we are trying to solve by building this product?”</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition">Definition<a href="#definition" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<p>When implementing a product, it is important to understand “why” we are building the product and “what is the problem” we are trying to solve. This should also include how the product will be perceived by the users and the market in general. The business architecture of a product will provide answers to these questions. When defining the business architecture, we need to analyze the product from different angles.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="key-aspects-to-analyze-about-the-suggested-product">Key aspects to analyze about the suggested product<a href="#key-aspects-to-analyze-about-the-suggested-product" class="hash-link" aria-label="Direct link to Key aspects to analyze about the suggested product" title="Direct link to Key aspects to analyze about the suggested product">​</a></h4>
+<p>The following aspects have been identified to aid in a much more effective business architecture analysis:</p>
+<ul>
+<li>User experience</li>
+</ul>
+<p>It is vital that we understand the users who will be using the product. Identifying the different personas of users will help the stakeholders identify the features that the product should support as well as how these features should be presented to the users. A user persona will analyze the demographics of a typical user and determine the purpose for which the user will be using the product. It is also important to identify the motivation the user chooses to use this product and what will get them to continue to use the product.</p>
+<ul>
+<li>Technology sophistication</li>
+</ul>
+<p>When using a product, a user has certain expectations that the product will provide implicitly. For example, in a banking application, they would expect it to be accurate (high reliability) and available at any time the user needs it (high availability). It is important that we identify these expectations and regulations early on, along with the features of the product. These facts will impact the infrastructure architecture, for example, whether the product will be hosted in the cloud or on-premises.</p>
+<ul>
+<li>Regulations and Compliance</li>
+</ul>
+<p>In every domain, there can be regulations and compliance that a product must adhere to. For example, if a product is planned to be used in Europe and contains personally identifiable information (PII), then the product should be GDPR-compliant. Also, if the product is in the healthcare domain, there are other regulations and compliances that should be adhered to. These will impact how the features are delivered to end users.</p>
+<ul>
+<li>Market sense</li>
+</ul>
+<p>A product either tries to solve a problem or will provide a solution to a requirement that the users themselves are not aware of. In the case of trying to solve a problem that the users are already aware of, it is best to analyze what other products are already available on the market. It is important to identify, in addition to the common features, the pain points of the users who are already using an existing product and address them. This will make the product stand out from the other existing products.</p>
+<ul>
+<li>Customer success</li>
+</ul>
+<p>Once a product is released to the market, it should be able to solve the problems that the users have and guide them to achieve their goal. Customer success is an important factor in defining the business architecture since it influences the features that will be included. If the features do not support and guide a user in achieving their goals, they will not be happy to continue using the product and move on to another one.</p>
+<ul>
+<li>Budget</li>
+</ul>
+<p>In addition to the features provided by the product, it is also important to get a sense of the prices in the market. If the product price is too high compared to other products already on the market, users will be discouraged from moving into the new product. Therefore, when designing a product, it is best to keep in mind the cost of implementing each feature and supporting additional user expectations.</p>
+<p>By identifying the necessary requirements for each aspect of the product, we will be able to come up with a comprehensive business architecture, which will set the tone of the product.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="driven-by">Driven by<a href="#driven-by" class="hash-link" aria-label="Direct link to Driven by" title="Direct link to Driven by">​</a></h4>
+<p>Implementation of a business architecture is conducted with the involvement of the following actors:</p>
+<ul>
+<li>
+<p>Product owner</p>
+</li>
+<li>
+<p>User</p>
+</li>
+<li>
+<p>Sales</p>
+</li>
+<li>
+<p>Dev team</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="impacted-personals">Impacted personals<a href="#impacted-personals" class="hash-link" aria-label="Direct link to Impacted personals" title="Direct link to Impacted personals">​</a></h4>
+<p>The successful implementation of a business architecture for a product, impacts following actors:</p>
+<ul>
+<li>
+<p>Stakeholders</p>
+</li>
+<li>
+<p>customers</p>
+</li>
+<li>
+<p>finances</p>
+</li>
+<li>
+<p>market</p>
+</li>
+<li>
+<p>partners</p>
+</li>
+<li>
+<p>suppliers</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="strategic-reasons-to-implement-a-business-architecture">Strategic reasons to implement a Business Architecture<a href="#strategic-reasons-to-implement-a-business-architecture" class="hash-link" aria-label="Direct link to Strategic reasons to implement a Business Architecture" title="Direct link to Strategic reasons to implement a Business Architecture">​</a></h4>
+<p>We have identified below the key benefits of having a business architecture for a particular business product.</p>
+<ul>
+<li>
+<p>Legacy modernization</p>
+</li>
+<li>
+<p>Globalization</p>
+</li>
+<li>
+<p>Regulatory compliance</p>
+</li>
+<li>
+<p>Determining new market and joint venture development</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="key-areas-to-focus-when-implementing-a-business-architecture">Key areas to focus when implementing a business architecture<a href="#key-areas-to-focus-when-implementing-a-business-architecture" class="hash-link" aria-label="Direct link to Key areas to focus when implementing a business architecture" title="Direct link to Key areas to focus when implementing a business architecture">​</a></h4>
+<p>Business architecture is directly based on business strategy. It is the foundation for subsequent architectures, where it is detailed into various aspects and disciplines. To optimize its value, it is necessary to consider the business from a number of different perspectives. Combining each of those perspectives will help us to fully understand the organization as it exists today and will give you a better understanding of how it needs to evolve into the future.</p>
+<p>We have identified four key areas of business architecture that need to be carefully evaluated.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="organization">Organization<a href="#organization" class="hash-link" aria-label="Direct link to Organization" title="Direct link to Organization">​</a></h5>
+<p>The organization is the structure of the company that business architecture is being applied to. The organization is made up of business units that combine to represent all functions and departments within the company.</p>
+<p>The organizational structure is a comprehensive view of the organizational elements to gain a perspective on the following components:</p>
+<ul>
+<li>
+<p>Business Units - A business unit is a logical grouping of a set of software services. Typically, business units, some of which are strategic business units, are focused on geography, a portfolio of products and services, or a customer segment.</p>
+</li>
+<li>
+<p>Locations - As the name suggests, location stands for geographic locations. The sites are vital to understanding the focus of each site, the types of customer segments the place serves, the products and services the area focuses on, and the capabilities that are vital to developing an understanding of the needs and strengths of each site.</p>
+</li>
+<li>
+<p>Departments - The departments are specialized groups of units with specific domain skills that serve critical organizational functions.</p>
+</li>
+<li>
+<p>Roles - A role is a specific type of organizational function where an individual or a group of individuals work on responsibilities in pursuit of a business outcome.</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="capabilities">Capabilities<a href="#capabilities" class="hash-link" aria-label="Direct link to Capabilities" title="Direct link to Capabilities">​</a></h5>
+<p>A business capability is one of the key components of business architecture and is an expression of what a business does and can do. A business capability denotes “what” a business can do, whereas a business process outlines how a particular activity gets done. There are multiple capabilities, each of which is unique.</p>
+<p>At an elemental level, a business capability is the encapsulation of the underlying functionality expressed abstractly.</p>
+<p>A capability map can be used to generate visualizations of an organization based on the distinct business capabilities that make up what that organization does. This is generally viewed as the starting point for the business architect, as it represents the most fundamental mapping of the business. However, there are a number of different aspects to each capability.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="value-streams">Value Streams<a href="#value-streams" class="hash-link" aria-label="Direct link to Value Streams" title="Direct link to Value Streams">​</a></h5>
+<p>Value streams are one of the most important elements of business architecture. The value stream is depicted as an end-to-end collection of value-adding activities that create an overall result for a customer, stakeholder, or end user.</p>
+<p>In modeling terms, those value-adding activities are represented by value stream stages, each of which creates and adds incremental stakeholder value from one stage to the next.</p>
+<p>They provide an easily understood visualization of how an organization achieves value through a self-contained set of activities, and as a map of a single value, the stream can easily contribute to an executive presentation or similar use case.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="information">Information<a href="#information" class="hash-link" aria-label="Direct link to Information" title="Direct link to Information">​</a></h5>
+<p>If capabilities represent what an organization does, information is the fuel that drives knowledge and understanding of how a business operates. Information is built on the organization’s data, but for it to be considered information, that data also requires context-the business capabilities, processes, decision-making, and so on-that leverage the data.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="quality-attributes-to-consider-when-implementing-a-business-architecture">Quality attributes to consider when implementing a business architecture<a href="#quality-attributes-to-consider-when-implementing-a-business-architecture" class="hash-link" aria-label="Direct link to Quality attributes to consider when implementing a business architecture" title="Direct link to Quality attributes to consider when implementing a business architecture">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="functional-suitability-of-a-business">Functional Suitability of a business<a href="#functional-suitability-of-a-business" class="hash-link" aria-label="Direct link to Functional Suitability of a business" title="Direct link to Functional Suitability of a business">​</a></h5>
+<p>This characteristic represents the degree to which a product or system provides functions that meet stated and implied needs when used under specified conditions. Businesses commonly operate under a functional structure because it groups people who have similar knowledge and, when used in a team environment, helps companies achieve their goals.</p>
+<p>There are many advantages to employing a functional structure in your business, and it allows you to implement ethical, enforceable standards regarding investments and the process within the organization.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="functional-completeness-in-a-business">Functional completeness in a business<a href="#functional-completeness-in-a-business" class="hash-link" aria-label="Direct link to Functional completeness in a business" title="Direct link to Functional completeness in a business">​</a></h6>
+<p>Functional completeness is the degree to which the set of functions covers all the specified tasks and user objectives in business. Consider the following steps to achieve functional completeness in your system:</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="steps-to-achieve-functional-completeness-in-a-business">Steps to achieve functional completeness in a business<a href="#steps-to-achieve-functional-completeness-in-a-business" class="hash-link" aria-label="Direct link to Steps to achieve functional completeness in a business" title="Direct link to Steps to achieve functional completeness in a business">​</a></h6>
+<ul>
+<li>
+<p>Identify what process needs to be implemented</p>
+</li>
+<li>
+<p>Analyze the pain points</p>
+</li>
+<li>
+<p>Conduct a root cause analysis</p>
+</li>
+<li>
+<p>Design and evaluate</p>
+</li>
+<li>
+<p>Implement the new process</p>
+</li>
+<li>
+<p>Evaluate and quantify</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="usability-of-the-product-in-the-business">Usability of the product in the business<a href="#usability-of-the-product-in-the-business" class="hash-link" aria-label="Direct link to Usability of the product in the business" title="Direct link to Usability of the product in the business">​</a></h5>
+<p>Usability is one of the keys to the user experience. It is a measure of how well a specific user in a specific context can use a product or design to achieve a defined goal effectively, efficiently, and satisfactorily. Usability depends on how well its features accommodate users’ needs and contexts.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="approaches-to-increase-usability-of-the-application">Approaches to increase usability of the application<a href="#approaches-to-increase-usability-of-the-application" class="hash-link" aria-label="Direct link to Approaches to increase usability of the application" title="Direct link to Approaches to increase usability of the application">​</a></h6>
+<ul>
+<li>
+<p>Reduction in loading time</p>
+</li>
+<li>
+<p>Optimize functionality</p>
+</li>
+<li>
+<p>Ensure consistency</p>
+</li>
+<li>
+<p>Readability</p>
+</li>
+<li>
+<p>Error prevention and recovery</p>
+</li>
+<li>
+<p>Help and documentation</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="key-actors-to-consider-in-designing-and-improving-the-usability-of-the-product">Key actors to consider in designing and improving the usability of the product<a href="#key-actors-to-consider-in-designing-and-improving-the-usability-of-the-product" class="hash-link" aria-label="Direct link to Key actors to consider in designing and improving the usability of the product" title="Direct link to Key actors to consider in designing and improving the usability of the product">​</a></h6>
+<ul>
+<li>
+<p>Users</p>
+</li>
+<li>
+<p>Database systems</p>
+</li>
+<li>
+<p>Clients and servers</p>
+</li>
+<li>
+<p>Cloud platforms</p>
+</li>
+<li>
+<p>Devices</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="compatibility-integrations-extensibility-of-the-product">Compatibility (Integrations, Extensibility) of the product<a href="#compatibility-integrations-extensibility-of-the-product" class="hash-link" aria-label="Direct link to Compatibility (Integrations, Extensibility) of the product" title="Direct link to Compatibility (Integrations, Extensibility) of the product">​</a></h5>
+<p>Compatibility is the capacity for two or more systems to work together without having to be altered to do so. Compatible software applications use the same data formats. For example, if image processor applications are compatible, the user should be able to open their image files in either product.</p>
+<p>Compatibility is responsible for testing a software product to ensure that it works well across different configurations, platforms, versions, and devices based on the user&#x27;s requirements. It mainly focuses on delivering consistent and high-quality performance.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="methods-to-identify-compatibility-of-a-product">Methods to identify compatibility of a product<a href="#methods-to-identify-compatibility-of-a-product" class="hash-link" aria-label="Direct link to Methods to identify compatibility of a product" title="Direct link to Methods to identify compatibility of a product">​</a></h6>
+<ul>
+<li>
+<p>Infrastructure compatibility</p>
+</li>
+<li>
+<p>Operating system compatibility</p>
+</li>
+<li>
+<p>Software compatibility</p>
+</li>
+<li>
+<p>Data storage compatibility</p>
+</li>
+<li>
+<p>3rd party integration compatibility</p>
+</li>
+<li>
+<p>Browser compatibility</p>
+</li>
+<li>
+<p>Devices compatibility</p>
+</li>
+</ul>
+<p>When compatibility is evaluated and designed in the business architecture phase, there are two main aspects we must focus on.</p>
+<p>Those are,</p>
+<p>-Integrations</p>
+<p>-Extensibility</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="integrations-in-a-software-product">Integrations in a software product<a href="#integrations-in-a-software-product" class="hash-link" aria-label="Direct link to Integrations in a software product" title="Direct link to Integrations in a software product">​</a></h6>
+<p>Integrations are responsible for bringing together multiple business systems to operate as a collaborative unit. When we consider business architecture, this often refers to software or system integrations. Integration allows us to share information between connected systems, and these integrations can vary in their functionality.</p>
+<p>For example, a point of sale (POS) system can connect its customer data to its CRM, or integrations can request information from a website or internal system and exchange that information by sending and receiving information between multiple systems in multiple locations.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="integration-types-to-focus-in-achieving-the-compatibility-of-a-software-product">Integration types to focus in achieving the compatibility of a software product<a href="#integration-types-to-focus-in-achieving-the-compatibility-of-a-software-product" class="hash-link" aria-label="Direct link to Integration types to focus in achieving the compatibility of a software product" title="Direct link to Integration types to focus in achieving the compatibility of a software product">​</a></h6>
+<p>We can evaluate and utilize the following compatibility type for the software solution for the business while designing the software architecture:</p>
+<ul>
+<li>
+<p>Star Integration - the process of developing connections within all software subsystems</p>
+</li>
+<li>
+<p>Horizontal Integration - method of establishing a system for communication such as message transmission and message monitoring</p>
+</li>
+<li>
+<p>Vertical Integration - fast and inexpensive option for software unification that develops functional entities for their software systems and vertically syncs them</p>
+</li>
+<li>
+<p>Common Data Format Integration - help businesses by providing data translation and promoting automation</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="steps-and-best-practices-to-follow-in-a-software-integration-process">Steps and best practices to follow in a software integration process<a href="#steps-and-best-practices-to-follow-in-a-software-integration-process" class="hash-link" aria-label="Direct link to Steps and best practices to follow in a software integration process" title="Direct link to Steps and best practices to follow in a software integration process">​</a></h6>
+<ul>
+<li>
+<p>Collect definitions, requirements, and specifications</p>
+</li>
+<li>
+<p>Analyze the information</p>
+</li>
+<li>
+<p>Develop architecture and management plans</p>
+</li>
+<li>
+<p>Create the software integration system</p>
+</li>
+<li>
+<p>Begin using the integration system</p>
+</li>
+<li>
+<p>Evaluate system performance periodically</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="key-factors-to-identify-in-a-software-integration">Key factors to identify in a software integration<a href="#key-factors-to-identify-in-a-software-integration" class="hash-link" aria-label="Direct link to Key factors to identify in a software integration" title="Direct link to Key factors to identify in a software integration">​</a></h6>
+<ul>
+<li>
+<p>Data format</p>
+</li>
+<li>
+<p>Integration pattern</p>
+</li>
+<li>
+<p>Enhanced authentication and authorization</p>
+</li>
+<li>
+<p>Testing environment</p>
+</li>
+<li>
+<p>Audit data</p>
+</li>
+<li>
+<p>Continuous testing software</p>
+</li>
+<li>
+<p>Maintain situational awareness</p>
+</li>
+<li>
+<p>Security</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="extensibility-of-a-software-product">Extensibility of a software product<a href="#extensibility-of-a-software-product" class="hash-link" aria-label="Direct link to Extensibility of a software product" title="Direct link to Extensibility of a software product">​</a></h6>
+<p>Extensibility is a measure of the ability to extend a system and the level of effort required to implement the extension. Extensions can be made through the addition of new functionality or the modification of existing functionality.</p>
+<p>The attribute provides for enhancements without impairing existing system functions. For example, integrated development environments (IDEs) are applications that facilitate the development of other applications, and the supported extensions and plugins for the IDEs will allow the users to customize their environment based on their preferences.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="extensibility-considerations-for-software-product-compatibility">Extensibility considerations for software product compatibility<a href="#extensibility-considerations-for-software-product-compatibility" class="hash-link" aria-label="Direct link to Extensibility considerations for software product compatibility" title="Direct link to Extensibility considerations for software product compatibility">​</a></h6>
+<ul>
+<li>
+<p>Multitenancy</p>
+</li>
+<li>
+<p>Multi-Region</p>
+</li>
+<li>
+<p>Latency</p>
+</li>
+<li>
+<p>Consistency</p>
+</li>
+<li>
+<p>Internationalization</p>
+</li>
+<li>
+<p>Marketing and branding</p>
+</li>
+<li>
+<p>Geographical regions</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="productization">Productization<a href="#productization" class="hash-link" aria-label="Direct link to Productization" title="Direct link to Productization">​</a></h5>
+<p>Productization is the strategy of turning an internal business capability into a commercially viable product. It is an area that businesses are more focused on to scale their business, increase revenue, and reduce operational costs. It is the process of converting a core application or service you offer into a product you can implement or market to a larger user base. This makes possible the opportunity for exponential growth.</p>
+<p>Productizing an application can lead to new external revenue streams, and the underlying architecture used to build the application can also serve as a blueprint, even if there are no common end users in which to market a new product and make an entry into the industry. Also, this provides a better framework to maintain product behavior and functionality consistent by evolving the application over time.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="key-factors-in-productization">Key factors in productization<a href="#key-factors-in-productization" class="hash-link" aria-label="Direct link to Key factors in productization" title="Direct link to Key factors in productization">​</a></h6>
+<ul>
+<li>
+<p>Branding</p>
+</li>
+<li>
+<p>Subscription</p>
+</li>
+<li>
+<p>License</p>
+</li>
+<li>
+<p>Standard</p>
+</li>
+<li>
+<p>Target market</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="stages-in-a-productization-process">Stages in a productization process<a href="#stages-in-a-productization-process" class="hash-link" aria-label="Direct link to Stages in a productization process" title="Direct link to Stages in a productization process">​</a></h6>
+<ul>
+<li>
+<p>Independent Projects - Executed independently and differ in the budget, technology, and functionality</p>
+</li>
+<li>
+<p>Project Feature Reuse - Focus on feature reuse across projects</p>
+</li>
+<li>
+<p>Product Recognition - Shared features between projects and customer-specific maintenance</p>
+</li>
+<li>
+<p>Product Platform - Generic product platform with customer requirements as a market requirement</p>
+</li>
+<li>
+<p>Standardizing Product Platform - Focus on generic product platform, and requirements are derived based on market trends</p>
+</li>
+<li>
+<p>Customizable Software Product - Standard product with customized layers par focusing on services</p>
+</li>
+<li>
+<p>Standard Software Product - Generic product for all customers, built for a specific market, completely configurable, structured for a subscription-based model</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="challenges-in-the-productization-transformation-process">Challenges in the productization transformation process<a href="#challenges-in-the-productization-transformation-process" class="hash-link" aria-label="Direct link to Challenges in the productization transformation process" title="Direct link to Challenges in the productization transformation process">​</a></h6>
+<ul>
+<li>
+<p>Reuse documentation</p>
+</li>
+<li>
+<p>Delta analysis and effort estimation</p>
+</li>
+<li>
+<p>Version proliferation</p>
+</li>
+<li>
+<p>Architectural drift</p>
+</li>
+<li>
+<p>Over featuring</p>
+</li>
+<li>
+<p>Security risks</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="provision-for-known-unknowns-in-a-business-product">Provision for Known unknowns in a business product<a href="#provision-for-known-unknowns-in-a-business-product" class="hash-link" aria-label="Direct link to Provision for Known unknowns in a business product" title="Direct link to Provision for Known unknowns in a business product">​</a></h5>
+<p>Known unknowns are assumptions that we haven’t or can’t validate. Most assumptions identified during business planning start in this category.</p>
+<p>They can be classified into three types:</p>
+<ul>
+<li>
+<p>Assumptions that can become known knowns now if they are validated</p>
+</li>
+<li>
+<p>Assumptions that can become known knowns at some point in the future, but not now</p>
+</li>
+<li>
+<p>Assumptions that can’t become known knowns because we can’t control them</p>
+</li>
+</ul>
+<p>Planning for known unknowns will reduce development time and costs and ultimately allow for better product delivery on time and on budget. The known unknown must be identified, along with the event that will trigger the risk mitigation process. These types of risks are discussed early on during the project planning process, and the project sponsor and stakeholders confirm and validate the risk, contingency, and response plan.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="factors-to-consider-as-grey-areas-in-the-product">Factors to consider as grey areas in the product<a href="#factors-to-consider-as-grey-areas-in-the-product" class="hash-link" aria-label="Direct link to Factors to consider as grey areas in the product" title="Direct link to Factors to consider as grey areas in the product">​</a></h6>
+<ul>
+<li>
+<p>Technology stack</p>
+</li>
+<li>
+<p>User load</p>
+</li>
+<li>
+<p>market growth</p>
+</li>
+<li>
+<p>Traffic growth</p>
+</li>
+<li>
+<p>Traffic pattern</p>
+</li>
+<li>
+<p>Backup plans</p>
+</li>
+<li>
+<p>Security</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="compliance-of-a-business">Compliance of a business<a href="#compliance-of-a-business" class="hash-link" aria-label="Direct link to Compliance of a business" title="Direct link to Compliance of a business">​</a></h5>
+<p>Compliance is an essential and important part of any business, irrespective of what sector the organization is operating in. It refers to following the internal policies or government laws and regulations that the organization is subjected to.</p>
+<p>Implementing compliance procedures protects your company’s reputational risk, improves your company’s vision and value, prevents and detects violations of rules. Failure to follow those compliance requirements can put you at risk of financial fines or legal penalties.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="different-types-of-compliance-applicable-for-your-product">Different types of compliance applicable for your product<a href="#different-types-of-compliance-applicable-for-your-product" class="hash-link" aria-label="Direct link to Different types of compliance applicable for your product" title="Direct link to Different types of compliance applicable for your product">​</a></h6>
+<p>When we consider compliance, regardless of size or the type of product, compliance is one area that no one should neglect. Each of the below compliance types will affect the product&#x27;s health to some degree,  and we must make sure to adhere to the latest standards and guidelines.</p>
+<ul>
+<li>
+<p>Corporate Compliance - following all laws, regulations, standards, and ethical practices that apply to your organization and industry.</p>
+</li>
+<li>
+<p>Regulatory Compliance - following the local and international laws and regulations that are relevant to its operations</p>
+</li>
+<li>
+<p>Data compliance - ensuring that the product is correct and legally collecting, organizing, storing, and managing data.</p>
+</li>
+<li>
+<p>Human resource compliance - all the business policies and procedures that ensure your organization is operating lawfully and with the welfare of your employees.</p>
+</li>
+<li>
+<p>Product health and safety compliance - ensure the product’s health and safety measurements are met.</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="compliances-and-the-standards-to-be-followed-in-your-product">Compliances and the standards to be followed in your product<a href="#compliances-and-the-standards-to-be-followed-in-your-product" class="hash-link" aria-label="Direct link to Compliances and the standards to be followed in your product" title="Direct link to Compliances and the standards to be followed in your product">​</a></h6>
+<p>Compliance standards are sets of rules that an organization is required to follow. To prove that the organization follows the rules, it must have a set of written policies, and it must also create a set of procedures and processes that people must follow as they carry out the policies.</p>
+<p>Consider using the compliance standards below for your product development as needed.</p>
+<ul>
+<li>
+<p>Payment Card Industry Data Security Standard (PCI DSS)</p>
+</li>
+<li>
+<p>International Organization for Standardization (ISO) standards</p>
+</li>
+<li>
+<p>General Data Protection Regulation (GDPR)</p>
+</li>
+<li>
+<p>Federal Information Security Modernization Act (FISMA)</p>
+</li>
+<li>
+<p>Health Information Technology for Economic and Clinical Health Act (HITECH)</p>
+</li>
+<li>
+<p>Web content accessibility guidelines (WCAG)</p>
+</li>
+<li>
+<p>508 compliance</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="quality-measurements-for-a-business">Quality measurements for a business<a href="#quality-measurements-for-a-business" class="hash-link" aria-label="Direct link to Quality measurements for a business" title="Direct link to Quality measurements for a business">​</a></h4>
+<p>We should focus on how to maintain the quality of the business, and we have identified the following measurements as key points to evaluate the quality of the product.</p>
+<ul>
+<li>
+<p>Performance</p>
+</li>
+<li>
+<p>Features</p>
+</li>
+<li>
+<p>Reliability</p>
+</li>
+<li>
+<p>Conformance</p>
+</li>
+<li>
+<p>Durability</p>
+</li>
+<li>
+<p>Serviceability</p>
+</li>
+<li>
+<p>Perceived quality</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h4>
+<p>In concluding notes, implementing a business architecture for a product as the initial step, we are already confident in proceeding to our next step, which is product architecture with all the must-know information.</p>
+<p>We propose answering the following sample questions, which will aid in identifying and implementing a successful business architecture that will lead to a good product.</p>
+<p>BAQ1: What are the constraints that need to be considered for functional suitability?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Performance requirements</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Functional Requirements</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Scalability</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Operating constraints</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Accuracy and precision of the requirements</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Portability</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Accessibility</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Security</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Data integrity &amp; accuracy</p>
+</li>
+</ul>
+<p>BAQ2: How can we achieve functional completeness in a business?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify what process needs to implement</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Analyze the pain points</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Conduct a root cause analysis</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Design and evaluate</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Implement the new process</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Evaluate and quantify</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Relevant workforce with skills</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Customer-Centric Approach</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Continuous Improvement</p>
+</li>
+</ul>
+<p>BAQ3: What are the quality measurements which can be used to maintain the quality of your product?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Performance</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Features</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reliability</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Conformance</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Durability</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Serviceability</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Perceived quality</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Security</p>
+</li>
+</ul>
+<p>BAQ4: How can you increase the usability of your application?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reduction in loading time</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Optimize functionality</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Ensure consistency</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Readability</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Error prevention and recovery</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Help and documentation</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->User centered design</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Define clear objectives</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Consistent &amp; responsive design</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Understand user needs, goals and behaviors</p>
+</li>
+</ul>
+<p>BAQ5: Who are the actors that need to be considered to design and improve the usability of the software product?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Users</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Database systems</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Clients and servers</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Cloud platforms</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Devices</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->dev/design/testers, po</p>
+</li>
+</ul>
+<p>BAQ6: How do you achieve compatibility?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Infrastructure compatibility</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Operating system compatibility</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Software compatibility</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Data storage compatibility</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->3rd party integration compatibility</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Browser compatibility</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Devices compatibility</p>
+</li>
+</ul>
+<p>BAQ7: How do you achieve the best use of software integrations?</p>
+<p>Consider the below integration types while designing an integration.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Star Integration - the process of developing connections within all software subsystems</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Horizontal Integration - method of establishing a system for communication such as message transmission and message monitoring</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Vertical Integration - fast and inexpensive option for software unification which develops functional entities for their software systems and vertically syncs them</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Common Data Format Integration - help businesses by providing data translation and promoting automation</p>
+</li>
+</ul>
+<p>BAQ8: What are the steps and best practices that can be followed in the software integration process?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Collect definitions, requirements, and specifications</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify Integration Points</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Select Integration Tools and Platforms:</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Analyze the information</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Develop architecture and management plans</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Create the software integration system</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Begin using the integration system</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Evaluate system performance periodically</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Testing</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->User Training</p>
+</li>
+</ul>
+<p>BAQ9: What are the factors that need to be identified for software integrations?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Business Objectives</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Integration Scope</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Data format</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Integration pattern</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Enhanced authentication and authorization</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Testing environment</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Audit data</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Continuous testing software</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Maintain situational awareness</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Security</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->User Workflows</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Performance Expectations</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Cost and Resource Estimates</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Monitoring and Maintenance</p>
+</li>
+</ul>
+<p>BAQ10: Have you identified the extensibility consideration?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Multitenancy</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Multi-Region</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Latency</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Consistency</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Internationalization</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Marketing and branding</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Geographical regions</p>
+</li>
+</ul>
+<p>BAQ11: What are the factors which need to be considered for productization?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Branding</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Subscription</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->License</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Standard</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Target market</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Adaptability to Market Changes</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Competitive Analysis</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Update and Maintenance Plan</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Legal Considerations</p>
+</li>
+</ul>
+<p>BAQ12: What are the stages which can be considered for productization process?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Independent Projects - Executed independently and differ in the budget, technology, and functionality</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Project Feature Reuse - Focus on feature reuse across projects</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Product Recognition - Shared features between projects and customer specific maintenance</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Product Platform - Generic product platform with handing customer requirement as a market requirement</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Standardizing Product Platform - Focus on generic product platform and requirements are derived based on the market trends</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Customizable Software Product - Standard product with customized layered par focusing on services</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Standard Software Product - Generic product for all customers and build for a specific market and completely configurable and structured for subscription-based model</p>
+</li>
+</ul>
+<p>BAQ13: What are the challenges in the productization transformation process?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reuse documentation</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Delta analysis and effort estimation</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Version proliferation</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Architectural drift</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Over featuring</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Security risks</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Market Fit</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Time-to-Market</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Adaptability to Change</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Technology Compatibility</p>
+</li>
+</ul>
+<p>BAQ14: What are the gray areas of the product?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Technology stack</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->User load</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->market growth</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Traffic growth</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Traffic pattern</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Backup plans</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Security</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Competitors</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Adoption Rate</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Customer Retention</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Evolving User Needs</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Global Expansion</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Technology Trends</p>
+</li>
+</ul>
+<p>BAQ15: What are the different types of compliance applicable for your product?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Corporate Compliance - following all laws, regulations, standards, and ethical practices that apply to your organization and industry.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Regulatory Compliance - following the local and international laws and regulations that are relevant to its operations</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Data compliance - ensuring that the product is correctly and legally collecting, organizing, storing, and managing data.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Human resource compliance - all the business policies and procedures that ensure your organization is operating lawfully and with the welfare of your employees.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Product health and safety compliance - ensure the product health and safety measurements are met.</p>
+</li>
+</ul>
+<p>BAQ16: What are the compliances and the standards to be followed in your product?</p>
+<p>Consider using the compliance standards below for your product development as needed.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Payment Card Industry Data Security Standard (PCI DSS)</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->International Organization for Standardization (ISO) standards</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->General Data Protection Regulation (GDPR)</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Federal Information Security Modernization Act (FISMA)</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Health Information Technology for Economic and Clinical Health Act (HITECH)</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Web content accessibility guidelines (WCAG)</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->508 compliances</p>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="product-architecture">Product Architecture<a href="#product-architecture" class="hash-link" aria-label="Direct link to Product Architecture" title="Direct link to Product Architecture">​</a></h3>
+<p>“How is the functionality of the product structured to modules?”</p>
+<p>“How the modules interact with achieve higher values?”</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-1">Definition<a href="#definition-1" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<p>Product architecture represents how the functionality of your product is structured into modules and how these modules interact with each other.</p>
+<p>In deriving the product architecture, functional requirements are focused mainly. In addition to functional requirements the following key points should be considered as well.</p>
+<ul>
+<li>
+<p>Non-functional requirements of your product</p>
+</li>
+<li>
+<p>Technology specifics</p>
+</li>
+<li>
+<p>Integration Points</p>
+</li>
+<li>
+<p>How to manage data and data flows through different modules</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="driven-by-1">Driven by<a href="#driven-by-1" class="hash-link" aria-label="Direct link to Driven by" title="Direct link to Driven by">​</a></h4>
+<p>Development Team</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="impacted-personals-1">Impacted personals<a href="#impacted-personals-1" class="hash-link" aria-label="Direct link to Impacted personals" title="Direct link to Impacted personals">​</a></h4>
+<ul>
+<li>
+<p>Users</p>
+</li>
+<li>
+<p>Operational Team</p>
+</li>
+<li>
+<p>Development Team</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="strategic-reasons-to-implement-a-product-architecture">Strategic reasons to implement a Product Architecture<a href="#strategic-reasons-to-implement-a-product-architecture" class="hash-link" aria-label="Direct link to Strategic reasons to implement a Product Architecture" title="Direct link to Strategic reasons to implement a Product Architecture">​</a></h4>
+<p>We have identified below the key benefits of having a product architecture for a particular business product.</p>
+<ul>
+<li>
+<p>Assist in proper consolidation of functional, non-functional and operational requirements of the product.</p>
+</li>
+<li>
+<p>Provides the development team and operational team with a design to abide by.</p>
+</li>
+<li>
+<p>Provides guidance and compliance during the implementation phase and maintenance phase for the development and operational teams.</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="key-areas-to-focus-when-implementing-a-product-architecture">Key areas to focus when implementing a product architecture<a href="#key-areas-to-focus-when-implementing-a-product-architecture" class="hash-link" aria-label="Direct link to Key areas to focus when implementing a product architecture" title="Direct link to Key areas to focus when implementing a product architecture">​</a></h4>
+<p>We have identified four key areas of product architecture that need to be carefully evaluated.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="system-decomposition">System Decomposition<a href="#system-decomposition" class="hash-link" aria-label="Direct link to System Decomposition" title="Direct link to System Decomposition">​</a></h5>
+<p>During product architecture, the entire product is normally designed in such a way that it will be decomposed into different layers, components, services, etc., based on an agreed-upon decomposition strategy.</p>
+<p>Systems can be decomposed based on execution context, deployment context, business, or domain capabilities. Some software architecture styles, such as multi-tier, microservices, event/message-driven, queue worker, and batch processing, are defined based on these strategies.</p>
+<p>With these, the system can be planned, developed, deployed, and maintained in a more independent and loosely coupled way.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="data">Data<a href="#data" class="hash-link" aria-label="Direct link to Data" title="Direct link to Data">​</a></h5>
+<p>All software products deal with data, and mainly how and where data is to be stored and processed needs to be analyzed.</p>
+<p>Relationships, documents, key values, graphs, and time series are some of the data-storage patterns. And proper modeling of data storage and isolation techniques such as normalization levels, logical partitioning, and tenant-based isolations are also available.</p>
+<p>Proper data modeling and isolation lead to more cost-friendly, performant, and secure data management in the product.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="communication-and-interaction">Communication and interaction<a href="#communication-and-interaction" class="hash-link" aria-label="Direct link to Communication and interaction" title="Direct link to Communication and interaction">​</a></h5>
+<p>The system components should communicate with each other effectively for a smoother function of the product as a whole. Normally, the components are distributed and communicated over networks.</p>
+<p>Communication styles such as synchronous vs. asynchronous and push vs. pull-based, communication protocols such as http, tcp, rpc, amqp, etc., data formats like JSON, binary, soap, etc., and communication-based technologies like Rest APIs, graphql, web hooks, and queue-based messaging are some considerations.</p>
+<p>The right component communication strategy is one of the main factors in the expected responsiveness and scalability of the system.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="implementation-technologies-tools-and-practices">Implementation technologies, tools and practices<a href="#implementation-technologies-tools-and-practices" class="hash-link" aria-label="Direct link to Implementation technologies, tools and practices" title="Direct link to Implementation technologies, tools and practices">​</a></h5>
+<p>Software products use technologies for implementation and then tools and practices for proper use of the technologies.</p>
+<p>The right selection of programming languages in all stacks, database technologies, design and communication patterns, libraries and frameworks, and development tools and plugins are required for efficient delivery, extendibility, security, and maintainability of the system.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="process-and-best-practices">Process and Best Practices<a href="#process-and-best-practices" class="hash-link" aria-label="Direct link to Process and Best Practices" title="Direct link to Process and Best Practices">​</a></h5>
+<p>Software product architecture should follow defined processes and best practices for success in the product.</p>
+<p>Agility in architecture and design, frequent reviews, proper technical leadership (architect role), innovation, and continuous improvements are key to making a software product more maintainable, extendable, and sustainable in the long run.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="quality-attributes-to-consider-when-implementing-a-product-architecture">Quality attributes to consider when implementing a product architecture<a href="#quality-attributes-to-consider-when-implementing-a-product-architecture" class="hash-link" aria-label="Direct link to Quality attributes to consider when implementing a product architecture" title="Direct link to Quality attributes to consider when implementing a product architecture">​</a></h4>
+<p>At the end of this chapter, we have presented a questionnaire, which is a great aid in designing a successful product architecture. Try answering and completing all the checkpoints in covering the quality attributes of your product.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="performance-of-the-product">Performance of the product<a href="#performance-of-the-product" class="hash-link" aria-label="Direct link to Performance of the product" title="Direct link to Performance of the product">​</a></h5>
+<p>Performance in product refers to the ability of the product to run on any user activity or scale at any time with expected response time.</p>
+<p>During the product architecture design the performance of the system can be considered in the following factors.</p>
+<ul>
+<li>
+<p>caching</p>
+</li>
+<li>
+<p>support scale horizontally and automatic scale in and down</p>
+</li>
+<li>
+<p>component proximity</p>
+</li>
+<li>
+<p>data persistent design</p>
+</li>
+<li>
+<p>workload isolation/decoupling</p>
+</li>
+<li>
+<p>component to component</p>
+</li>
+</ul>
+<p>Technology selection can also mainly affect the performance of the application. Proper data modeling and persistent technologies and strategies can influence the performance of the overall software product as well.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="security-and-privacy-of-the-product">Security and Privacy of the product<a href="#security-and-privacy-of-the-product" class="hash-link" aria-label="Direct link to Security and Privacy of the product" title="Direct link to Security and Privacy of the product">​</a></h5>
+<p>Security of the system gives assurance for confidentiality, integrity, and availability of data and the system itself from attacks, threats, and abuses. Privacy mainly relates to the storage, processing, and transfer of personally identifiable data.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="reliability-of-the-product">Reliability of the product<a href="#reliability-of-the-product" class="hash-link" aria-label="Direct link to Reliability of the product" title="Direct link to Reliability of the product">​</a></h5>
+<p>Reliability refers to the ability of the software product to function without any issues under agreed-upon conditions and periods. With the reliability of the software product architecture, we need to make sure there are no functional bugs, downtimes, performance issues, or security issues.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="functional-stability-bug-free-of-the-product">Functional stability (bug-free) of the product<a href="#functional-stability-bug-free-of-the-product" class="hash-link" aria-label="Direct link to Functional stability (bug-free) of the product" title="Direct link to Functional stability (bug-free) of the product">​</a></h5>
+<p>Functional stability is defined as software that should continue to function in different environments and conditions without any failures and with the expected quality.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="maintainability-of-the-product">Maintainability of the product<a href="#maintainability-of-the-product" class="hash-link" aria-label="Direct link to Maintainability of the product" title="Direct link to Maintainability of the product">​</a></h5>
+<p>The effectiveness of a good product architecture is mainly measured by how easily the system can be changed for future requirements in a cost-effective way over the product’s life.</p>
+<ul>
+<li>
+<p>How well the software product can be modified for continuous changes: Every software product has to evolve over time after the live rollout and even before it. These changes will come as improvements and bug fixes based on business, technology, and environmental changes.</p>
+</li>
+<li>
+<p>How well the product is test-automated: as system functionality is more covered by test automation, it is easier to make changes. Mainly, tests can be automated using unit, integration, and UI testing (Test Pyramid). Further, some automated code, security, load, and performance quality checks will be helpful.</p>
+</li>
+</ul>
+<p>Design for testability, a test-first approach to implementation (test-driven development), design patterns, more control over the reusability of the system, and proper coding practices like SOLID lead to a more maintainable software product.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion-1">Conclusion<a href="#conclusion-1" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h4>
+<p>In concluding notes, while implementing a product architecture for a business we design identified points in business architecture phase into our software product.</p>
+<p>We propose answering the following sample questions and completing each point, which will aid in identifying and implementing a successful product architecture that will lead to a good product.</p>
+<p>PAQ1: How do you achieve performance by design?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reduce Initial loading time</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Lower Page response time</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Process Large number of items in less time (Ex. How many PDF needs to be generated based on the specific time)</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Load certain volume of data without any delay</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Keep the expected performance of the product even at high user load.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Make sure long running processes or activities do not affect normal product functionality performance.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Make sure minimal latency during product component to component communication</p>
+</li>
+</ul>
+<p>PAQ2: How do you achieve performance by technology?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reduce initial Loding</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Lower Page response time</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Keep best performance for expected devices</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Provide lower processing time</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Serve high number of concurrent requests and parallel processing</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify technology limitations</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify for Performance and Load benchmarks</p>
+</li>
+</ul>
+<p>PAQ3: How do you achieve performance by data strategy?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reduce data retrieval time</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reduce data writing time</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Minimize processing in persistent store</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Keep the expected performance during high data volume</p>
+</li>
+</ul>
+<p>PAQ4: How do achieve software product security?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect the Product from unauthorized access to system</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect the product from unauthorized actions, viewing and changing system state</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect product component and services from attacks, unauthorized consumptions, threats and unavailability</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect secrets, sensitive and personally identifiable information from unauthorized disclosure</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Make sure regional, organizational, domain specific or any other compliance or policy related restrictions can be enforced</p>
+</li>
+</ul>
+<p>PAQ5: How do achieve software product Security by technology?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect the product from unauthorized access and change to the data</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect from making data unavailable</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect from disclosing sensitive and personally identifiable data</p>
+</li>
+</ul>
+<p>PAQ6: How do achieve software product security and privacy by data strategy?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect the product from unauthorized access and change to the data</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect from making data unavailable</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Protect from disclosing sensitive and personally identifiable data</p>
+</li>
+</ul>
+<p>PAQ7: How do achieve software product reliability?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Minimize the entire system or functionality failures</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reduce the impact on product users when there is a failure</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Increase the level of tolerance during a service or component failure</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Make the system or a service can recover to its normal condition, when there is a failure (Reduce Recovery time objective)</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Make less impact to the data loses during a failure or unavailability (Reduce Point Objective)</p>
+</li>
+</ul>
+<p>PAQ8: How do achieve software product Functional?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Make sure system can run without any failures in varying user loads and behaviors</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Make sure the system is functional in different user platforms, devices and networks.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Make sure system perform as expected in different data loads</p>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="infrastructure-architecture">Infrastructure Architecture<a href="#infrastructure-architecture" class="hash-link" aria-label="Direct link to Infrastructure Architecture" title="Direct link to Infrastructure Architecture">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-2">Definition<a href="#definition-2" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<p>Infrastructure architecture refers to the process of designing and developing technological systems and infrastructure that align with business requirements. This entails creating well-documented, integrated infrastructure models that cater to various stakeholders&#x27; needs. The aim is to achieve seamless release and deployment automation, security, validation, and release management.</p>
+<p>There are three primary types of infrastructure architectures that can be adopted to support a software product:</p>
+<p>On-Premise Architecture:</p>
+<p>Single physical server setup with an operating system, platform, and application.</p>
+<p>Driven by DevOps, support engineers, and network engineers.</p>
+<p>Cloud Architecture:</p>
+<p>Virtualized servers hosted in the cloud, distributing virtual machines across multiple physical servers.</p>
+<p>Driven by solution architects and development teams.</p>
+<p>Hybrid Architecture:</p>
+<p>Involves a containerized server architecture with multiple containers distributed across the application platform.</p>
+<p>A combination of on-premise and cloud elements.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="driven-by-2">Driven by<a href="#driven-by-2" class="hash-link" aria-label="Direct link to Driven by" title="Direct link to Driven by">​</a></h6>
+<p>When it comes to infrastructure architecture, it depends on how critical the application architecture is. So generally, the architect and development team initiate the product&#x27;s architecture. And the ownership is going to the Ops team.</p>
+<p>Since we are focusing on the product under the infrastructure architecture we are mainly focussing on</p>
+<ol>
+<li>
+<p>On-premise infrastructure architecture driven by DevOps, support engineers, network engineers</p>
+</li>
+<li>
+<p>Cloud infrastructure architecture driven by Solution architect, dev team</p>
+</li>
+<li>
+<p>Cost and pricing</p>
+</li>
+</ol>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="impacted-personals-2">Impacted personals<a href="#impacted-personals-2" class="hash-link" aria-label="Direct link to Impacted personals" title="Direct link to Impacted personals">​</a></h6>
+<p>Dev and Ops teams, PO, CTO(product)</p>
+<p>Product CTO - whether to go on on-premise, cloud and cost</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="strategic-reasons">Strategic reasons<a href="#strategic-reasons" class="hash-link" aria-label="Direct link to Strategic reasons" title="Direct link to Strategic reasons">​</a></h4>
+<p>This architecture pillar is a main factor in deciding how well your product will serve the purpose in the production environment. The architect should be concerned on this in parallel to the Business architecture and Product architecture stages as well.</p>
+<p>Most common mistake that occurs within software projects is identifying the infrastructure needs at the very end, which could result in waste of resources, cost, and inability to meet the full potential of the application performance.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="key-areas">Key areas<a href="#key-areas" class="hash-link" aria-label="Direct link to Key areas" title="Direct link to Key areas">​</a></h4>
+<p>Infrastructure architecture depicts the mapping of a logical architecture to a physical resource environment.</p>
+<p>There are 5 key areas to pay attention to.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="sizing-the-planned-deployment-infrastructure-needs">Sizing the planned deployment infrastructure needs<a href="#sizing-the-planned-deployment-infrastructure-needs" class="hash-link" aria-label="Direct link to Sizing the planned deployment infrastructure needs" title="Direct link to Sizing the planned deployment infrastructure needs">​</a></h5>
+<p>Infrastructure architecture includes the physical resources necessary to meet the software product requirements. Architect should pay attention to derive a design that implies</p>
+<p>best use of resources while adhering to the business constraints and non-functional requirements. Successful design of an infrastructure requires past experience,</p>
+<p>knowledge of systems architecture, domain knowledge and close attention to the non-functional requirements.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="optimize-resources--know-your-compromises">Optimize resources &amp; know your compromises<a href="#optimize-resources--know-your-compromises" class="hash-link" aria-label="Direct link to Optimize resources &amp; know your compromises" title="Direct link to Optimize resources &amp; know your compromises">​</a></h5>
+<p>Due to various factors such as time and cost, we may have to be flexible in our architectural decisions, yet meeting the standards.</p>
+<p>Resource optimization often tied up with compromises which is inevitable where you have to justify against these tradeoffs. Further those points has</p>
+<p>to be clearly documented and maintained for future references as well.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="identifying-the-risk">Identifying the risk<a href="#identifying-the-risk" class="hash-link" aria-label="Direct link to Identifying the risk" title="Direct link to Identifying the risk">​</a></h5>
+<p>As we know, during the architecture phase, infrastructure requirements may have gaps, which is why we keep some provisions for such unknowns.</p>
+<p>For an example if you underestimate the actual production usage of the system, your system will not be able to handle the expected load.</p>
+<p>To avoid that, the infrastructure architecture should continuously evolve based on business needs.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="handling-deployments">Handling deployments<a href="#handling-deployments" class="hash-link" aria-label="Direct link to Handling deployments" title="Direct link to Handling deployments">​</a></h5>
+<p>In order to improve lead time of feature delivery, it is necessary to identify an efficient deployment strategy within the business and product architecture constraints.</p>
+<p>There are well established strategies that you can choose from:</p>
+<ul>
+<li>
+<p>Recreate Deployment</p>
+</li>
+<li>
+<p>Blue/Green Deployment</p>
+</li>
+<li>
+<p>Canary Deployment</p>
+</li>
+<li>
+<p>Shadow Deployment</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="visualize-your-infrastructure">Visualize your infrastructure<a href="#visualize-your-infrastructure" class="hash-link" aria-label="Direct link to Visualize your infrastructure" title="Direct link to Visualize your infrastructure">​</a></h5>
+<p>You need to create your infrastructure diagrams, for better visualization of the system. It also helps to discuss the key areas among the stake holders. You</p>
+<p>can create the draft document from the initial stage, so that the developers will also be aware of the underline infrastructure that their code is being executed.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="quality-attributes">Quality attributes<a href="#quality-attributes" class="hash-link" aria-label="Direct link to Quality attributes" title="Direct link to Quality attributes">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="cost-optimization">Cost optimization<a href="#cost-optimization" class="hash-link" aria-label="Direct link to Cost optimization" title="Direct link to Cost optimization">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview">​</a></h6>
+<p>In a software product business, typically infrastructure costs become significant. Therefore, we need to come up with various strategies to reduce the total cost of ownership.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="questions--guidance">Questions / Guidance<a href="#questions--guidance" class="hash-link" aria-label="Direct link to Questions / Guidance" title="Direct link to Questions / Guidance">​</a></h6>
+<p>ICOQ1 : Have you identified the minimal infrastructure needs to run your application?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Minimum hardware requirement</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Compatible OS and Platforms</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Scalability needs</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Network requirements (bandwidth, latency)</p>
+</li>
+</ul>
+<p>ICOQ2 : Do you have any SLA to be fulfilled under your user agreement?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Uptime requirements</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Backup and disaster recovery requirements</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Support requirements</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Data security and privacy compliance</p>
+</li>
+</ul>
+<p>ICOQ3 : Have you considered and compared alternative options for infrastructure?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->SWOT of Infrastructure selection</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Competitive advantages of choosing the right infrastructure</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Keep track of competitive decisions</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Cost-benefit analysis of different infrastructure choices</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Future scalability potential of each infrastructure option</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="monitoring">Monitoring<a href="#monitoring" class="hash-link" aria-label="Direct link to Monitoring" title="Direct link to Monitoring">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="overview-1">Overview<a href="#overview-1" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview">​</a></h6>
+<p>Once your application is in production you need visibility over its health. This information will help you to identify issues upfront and troubleshoot them to solve any issues.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="questions--guidance-1">Questions / Guidance<a href="#questions--guidance-1" class="hash-link" aria-label="Direct link to Questions / Guidance" title="Direct link to Questions / Guidance">​</a></h6>
+<p>IMQ1 : Have you identified monitoring needs of your application?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify the areas that required constant monitoring</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify the tools that fulfills them</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Define specific metrics to be monitored (e.g., response time, error rate).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Determine acceptable thresholds for each monitored metric.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Consider scalability and resource utilization metrics.</p>
+</li>
+</ul>
+<p>IMQ2 : Have you identified the people and means of notifying in case of a failure?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Define the critical alarms and events that needs to be configured</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify the correct audience for each alarm (e.g., development team, operations team).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Prioritize your metrics based on their impact and urgency.</p>
+</li>
+</ul>
+<p>IMQ3 : Have you identified the logs generated by your application?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify all the logs that are generated by the application</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Ensure that the logs are persistent and stored securely</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Ensure that the logs are available to access for any investigation</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Check that log levels are appropriately defined for easy filtering and debugging.</p>
+</li>
+</ul>
+<p>IMQ4 : Do you plan to do a trial run to customer alerts?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Ensure alerts are delivered when incidents occur</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Craft clear and concise alert messages with relevant information</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Define alert escalation procedures for different severity levels.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Test alerts in a controlled environment before deploying to customers.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Review and refine the list of valid causes for triggering alerts.</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="security">Security<a href="#security" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="overview-2">Overview<a href="#overview-2" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview">​</a></h6>
+<p>Once your application is in production, make sure that infrastructure security is properly handled.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="questions--guidance-2">Questions / Guidance<a href="#questions--guidance-2" class="hash-link" aria-label="Direct link to Questions / Guidance" title="Direct link to Questions / Guidance">​</a></h6>
+<p>ICQ1: Have considered proper security configuration for infrastructure?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Ensure to change default configurations</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Ensure to change the default passwords</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Conduct a security assessment or penetration testing on your infrastructure</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Keep software versions up to date</p>
+</li>
+</ul>
+<p>ICQ3: What steps do you take to ensure secure user authentication and access?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Enforce strong password policies (complexity, expiration, etc.).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Implement multi-factor authentication (MFA) for all users.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Use single sign-on (SSO) to centralize and simplify access control.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Regularly review and revoke unnecessary user access rights.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Monitor and log user authentication and access events.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Implement role-based access control (RBAC) for granular permissions.</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="availability">Availability<a href="#availability" class="hash-link" aria-label="Direct link to Availability" title="Direct link to Availability">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="overview-3">Overview<a href="#overview-3" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview">​</a></h6>
+<p>Availability is a key factor in ensuring the success of any system. Through careful planning and consideration of the environmental factors that could affect the system.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="questions--guidance-3">Questions / Guidance<a href="#questions--guidance-3" class="hash-link" aria-label="Direct link to Questions / Guidance" title="Direct link to Questions / Guidance">​</a></h6>
+<p>IAQ1: Have you evaluated your infrastructure for availability?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Check your infrastructure SLAs</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify potential point of failure within your infrastructure</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Ensure that sufficient redundancy in place</p>
+</li>
+</ul>
+<p>IAQ2: What redundancy measures have you implemented in your infrastructure?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Implemented failover systems to seamlessly switch to backup resources in case of failures.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Set up load balancing to distribute traffic and workloads across multiple servers.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Utilized backup power solutions (UPS, generators) to maintain operation during power outages.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Employed geographical redundancy by hosting services in multiple data centers or regions.</p>
+</li>
+</ul>
+<p>IAQ3: How have you ensured that your system can handle varying levels of traffic and demand?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Designed your architecture to easily scale horizontally by adding more servers or resources.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Implemented auto-scaling mechanisms to dynamically allocate resources based on real-time demand.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Conducted load testing to identify performance bottlenecks and optimize resource allocation.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Monitored system performance during peak and off-peak times to adjust resources accordingly.</p>
+</li>
+</ul>
+<p>IAQ4: How do you validate the effectiveness of your availability measures?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Conducting regular availability tests to simulate various failure scenarios and assess system response.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Using chaos engineering techniques to intentionally introduce failures and observe the system&#x27;s behavior.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reviewing post-incident analyses to identify areas for improvement and implement necessary changes.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Involving cross-functional teams in tabletop exercises to practice coordinated responses to availability challenges.</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="maintainability">Maintainability<a href="#maintainability" class="hash-link" aria-label="Direct link to Maintainability" title="Direct link to Maintainability">​</a></h5>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="overview-4">Overview<a href="#overview-4" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview">​</a></h6>
+<p>Maintainability is one of the key components of Infrastructure Architecture. Here, we need to consider the reliability of infrastructure and ability to change over its lifetime.</p>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="questions--guidance-4">Questions / Guidance<a href="#questions--guidance-4" class="hash-link" aria-label="Direct link to Questions / Guidance" title="Direct link to Questions / Guidance">​</a></h6>
+<p>IMQ1 : Have you considered automates infrastructure provisioning?</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Identify an infrastructure automation language</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Infrastructure layers and modules</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Infrastructure changes review and dry run</p>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="production-architecture">Production Architecture<a href="#production-architecture" class="hash-link" aria-label="Direct link to Production Architecture" title="Direct link to Production Architecture">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="definition-3">Definition<a href="#definition-3" class="hash-link" aria-label="Direct link to Definition" title="Direct link to Definition">​</a></h4>
+<ul>
+<li>
+<p>An architecture view that helps to run the system smoothly and cater system maintenance when the product moves to production.</p>
+</li>
+<li>
+<p>It also supports end users’ day-to-day usage without any other external impact.</p>
+</li>
+<li>
+<p>This architecture view will act as guidance on product troubleshooting and cost optimization where it helps to extend or add necessary improvements to the product.</p>
+</li>
+</ul>
+<p>Ex:</p>
+<ul>
+<li>
+<p>Adding dashboard</p>
+</li>
+<li>
+<p>Usage analytics system support</p>
+</li>
+<li>
+<p>Issues monitoring system</p>
+</li>
+<li>
+<p>Real time notifications support to inform administrators if any issues are encountered in the production.</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="why">Why<a href="#why" class="hash-link" aria-label="Direct link to Why" title="Direct link to Why">​</a></h4>
+<ul>
+<li>
+<p>Implementing best strategies to keep the system functioning normally, unimpeded by either internal or external exceptions.</p>
+<ul>
+<li>
+<p>Ex</p>
+<ul>
+<li>
+<p>Adding resources utilisation tracking to avoid extra cost charges.</p>
+</li>
+<li>
+<p>Logs tracking system for system troubleshooting.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Being able to react quickly in an emergency situation so that developers may make any necessary technological changes in a short amount of time</p>
+<ul>
+<li>
+<p>Ex</p>
+<ul>
+<li>system’s continuous monitoring facility will inform critical issues through real time notifications to avoid extra charges.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="driven-by-3">Driven by<a href="#driven-by-3" class="hash-link" aria-label="Direct link to Driven by" title="Direct link to Driven by">​</a></h5>
+<ul>
+<li>
+<p>DevOps Team</p>
+</li>
+<li>
+<p>Site Reliability Engineers Team</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="impacted-personals-3">Impacted personals<a href="#impacted-personals-3" class="hash-link" aria-label="Direct link to Impacted personals" title="Direct link to Impacted personals">​</a></h5>
+<ul>
+<li>
+<p>DevOps Team</p>
+</li>
+<li>
+<p>Intrusion Prevention Systems</p>
+</li>
+<li>
+<p>Intrusion Detection Systems</p>
+</li>
+<li>
+<p>Product owners</p>
+</li>
+<li>
+<p>Service Desk</p>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="key-areas-1">Key areas<a href="#key-areas-1" class="hash-link" aria-label="Direct link to Key areas" title="Direct link to Key areas">​</a></h4>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="quality-attributes-1">Quality attributes<a href="#quality-attributes-1" class="hash-link" aria-label="Direct link to Quality attributes" title="Direct link to Quality attributes">​</a></h4>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="observability-incident-response-monitoring-testing">Observability (Incident response, Monitoring, Testing)<a href="#observability-incident-response-monitoring-testing" class="hash-link" aria-label="Direct link to Observability (Incident response, Monitoring, Testing)" title="Direct link to Observability (Incident response, Monitoring, Testing)">​</a></h5>
+<ul>
+<li>
+<p>When a product is in production, being able to see its internal status from outside is an utmost important quality of the product. As an example, when a system is in production, the ability to see that its usage of RAM is increasing and currently it is at 80% usage will give support staff a heads up for system failure in the future.</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="questions--guidance-5">Questions / Guidance<a href="#questions--guidance-5" class="hash-link" aria-label="Direct link to Questions / Guidance" title="Direct link to Questions / Guidance">​</a></h6>
+<p>POQ1 : When the Product is up and running, you may encounter different types of errors or intrusions. What kind of mechanisms should be used to report incidents?</p>
+<p>POA1 : Nowadays operational staff may not be looking at dashboards, they need a way to be notified automatically whenever an incident happens, thus we have to multiple ways of incident reporting based on criticality, and who should get notified also should be decided appropriately. Use one or more of the following approaches to achieve this.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Establishing an incident reporting system</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Implementing Logging</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Using System Monitoring</p>
+</li>
+</ul>
+<p>POQ2 : How do you classify your incidents and categorize them?</p>
+<p>POA2 : Following are some of the known incident types widely used. Choose which types are relevent for you.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Bugs</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Performance</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Downtime</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Hacking attempts</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Resource utilization</p>
+</li>
+</ul>
+<p>POQ3 : What kind of information should we be able to monitor in a system?</p>
+<p>POA3 : There are many parameters that can be monitored in a system. These could range from user and activity-based matrices to resource consumptions. Select the matrices that you target to implement in your system.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->No of users active in the system and from what regions</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->What are the user activities mostly done</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Resource utilization against time</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Suspicious users</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Blocked user attempts</p>
+</li>
+</ul>
+<p>POQ4 : What should be considered when testing a system in production?</p>
+<p>POA4 : Since this is about the production system. Anything that has a negative impact on the user should be avoided. The following list contains some of the main points to consider.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Downtime should be adhering to the SLA agreements</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Should not negatively impact user experience (ex -performance issues)</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Test data should not persist in the production database.</p>
+</li>
+</ul>
+<p>POQ5 : Considering all the above points since we have multiple ways of knowing the status of the product, what should be considered when we log incidents?</p>
+<p>POA5 : Incident report should be easy to understand and adhere to the governance. Below points will help you to achieve this.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Structure</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Information</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Compliance</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Performance</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->classifications</p>
+</li>
+</ul>
+<p>When designing the system, we should have these in mind to have access points to support the observability of the product. Not only that but when configuring the server also we should give attention to these.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="cost-optimization-1">Cost Optimization<a href="#cost-optimization-1" class="hash-link" aria-label="Direct link to Cost Optimization" title="Direct link to Cost Optimization">​</a></h5>
+<ul>
+<li>
+<p>Cost optimization of a product applies on multiple levels and thereby it means reducing the total cost of ownership.</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="questions--guidance-6">Questions / Guidance<a href="#questions--guidance-6" class="hash-link" aria-label="Direct link to Questions / Guidance" title="Direct link to Questions / Guidance">​</a></h6>
+<p>PCOQ1 : When a product is in production, what are the things that impact production cost?</p>
+<p>PCOA1 : Following points indicate the main cost factors of a production system.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Processing Power</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Disk Space</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Network usage</p>
+</li>
+</ul>
+<p>PCOQ2 : How can we reduce the cost of a product in production?</p>
+<p>PCOA2 : There are many ways we can reduce the cost of production. Starting from the business architecture all architectural points will have an impact on this. The following pointers will help you to decide what&#x27;s best suited for your product while optimizing the cost.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Way of scaling</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Regions</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Having server utilization monitoring</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Shared resourcing</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Backup retention</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Data retention and moving into tiers.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Proper network configurations</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Transfer data in proper formats.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Caching</p>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting">​</a></h5>
+<ul>
+<li>
+<p>When there is a production issue, it&#x27;s highly critical that we have the ability to respond and resolve it in an efficient manner.</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="questions--guidance-7">Questions / Guidance<a href="#questions--guidance-7" class="hash-link" aria-label="Direct link to Questions / Guidance" title="Direct link to Questions / Guidance">​</a></h6>
+<p>PTQ1 : What do we need to respond quickly to a production issue?</p>
+<p>PTA1 : Production system should have the following to respond quickly to a production issue.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Proper logs</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Way to reproduce the issue</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Way to apply the patch</p>
+</li>
+</ul>
+<p>PTQ2 : What do you mean by proper logs?</p>
+<p>PTA2 : To troubleshoot a production issue and find its course logs will be the first place someone can check. The following attributes in a log will help support staff.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Proper Structure</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Timestamp</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Stack trace</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Log Classification</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->User action flow</p>
+</li>
+</ul>
+<p>PTQ3 : What can be improper information in a log?</p>
+<p>PTA3 : Mainly with GDPR personally identified information should not be logged.</p>
+<p>PTQ4 : What should we think when reproducing an issue in production?</p>
+<p>PTA4 : Since we are talking about a production system, we should be careful about negatively impacting user experience. Hence, paying attention to the following items will help.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Should not interfere with actual user actions</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Test data should not persist in the production database</p>
+</li>
+</ul>
+<p>PTQ5 : How fast should we resolve a production issue?</p>
+<p>PTA5 : It depends on the SLA s we have in place with the system with respect to the priority of the issue.</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="governance">Governance<a href="#governance" class="hash-link" aria-label="Direct link to Governance" title="Direct link to Governance">​</a></h5>
+<ul>
+<li>
+<p>Governance is the ability of the system to adhere and comply to regulations defined by legal and industry standards.</p>
+</li>
+</ul>
+<h6 class="anchor anchorWithStickyNavbar_LWe7" id="questions--guidance-8">Questions / Guidance<a href="#questions--guidance-8" class="hash-link" aria-label="Direct link to Questions / Guidance" title="Direct link to Questions / Guidance">​</a></h6>
+<p>PGQ1 : What are the types of compliance we should think about in production.</p>
+<p>PGA1 : There are many compliances that software development has to adhere to, and the following are few examples that you should consider based on the business.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->GDPR</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Performance Compliance</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Reliability Compliance</p>
+</li>
+</ul>
+<p>PGQ2 : Other than the above compliances can there be separate agreements that we have to adhere to in production?</p>
+<p>PGA2 : Yes, based on the business requirement there can be deferent types of agreements that we have to adhere to in production. Some of the common types of agreements are listed here.</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->SLA</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Change Management Agreement</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Risk Management</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" disabled=""> <!-- -->Infrastructure Agreements</p>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="quality-attributes-definitions">Quality Attributes Definitions<a href="#quality-attributes-definitions" class="hash-link" aria-label="Direct link to Quality Attributes Definitions" title="Direct link to Quality Attributes Definitions">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="functional-suitability-isoise-25010-refer">Functional Suitability (ISO/ISE 25010, refer)<a href="#functional-suitability-isoise-25010-refer" class="hash-link" aria-label="Direct link to Functional Suitability (ISO/ISE 25010, refer)" title="Direct link to Functional Suitability (ISO/ISE 25010, refer)">​</a></h3>
+<p>(This characteristic represents the degree to which a product or system provides functions that meet stated and implied needs when used under specified conditions)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="usability">Usability<a href="#usability" class="hash-link" aria-label="Direct link to Usability" title="Direct link to Usability">​</a></h3>
+<p>(Quality of the user’s experience when interacting with Product)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="extensibility--agility">Extensibility | Agility<a href="#extensibility--agility" class="hash-link" aria-label="Direct link to Extensibility | Agility" title="Direct link to Extensibility | Agility">​</a></h3>
+<p>(The design needs to be agile enough to incorporate future growth, i.e. Provision for known unknowns)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compatibility-integrations">Compatibility (Integrations)<a href="#compatibility-integrations" class="hash-link" aria-label="Direct link to Compatibility (Integrations)" title="Direct link to Compatibility (Integrations)">​</a></h3>
+<p>(Ability to seamlessly integrate with 3rd party systems.)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="productization-1">Productization<a href="#productization-1" class="hash-link" aria-label="Direct link to Productization" title="Direct link to Productization">​</a></h3>
+<p>(Ability to convert a customer specific to a general product. (white labeling))</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="performance">Performance<a href="#performance" class="hash-link" aria-label="Direct link to Performance" title="Direct link to Performance">​</a></h3>
+<p>(shows the response of the system to performing certain actions for a certain period)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="efficiency">Efficiency<a href="#efficiency" class="hash-link" aria-label="Direct link to Efficiency" title="Direct link to Efficiency">​</a></h3>
+<p>(It is measured in terms of time required to complete any task given to the system.)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="security-1">Security<a href="#security-1" class="hash-link" aria-label="Direct link to Security" title="Direct link to Security">​</a></h3>
+<p>(Security is responsible for the ability of the system to reduce the likelihood of malicious or accidental actions as well as the possibility of theft or loss of information. This can be measure at many levels e.g. Product, Infrastructure.)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="privacy">Privacy<a href="#privacy" class="hash-link" aria-label="Direct link to Privacy" title="Direct link to Privacy">​</a></h3>
+<p>(Ability of the system to cater to Data Subjects, Controllers and Authorities requirements)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="reliability">Reliability<a href="#reliability" class="hash-link" aria-label="Direct link to Reliability" title="Direct link to Reliability">​</a></h3>
+<p>(Ability of the system to continue to operate under defined conditions (Resilience, fault tolerance, availability))</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="functional-stability">Functional stability<a href="#functional-stability" class="hash-link" aria-label="Direct link to Functional stability" title="Direct link to Functional stability">​</a></h3>
+<p>(The ability of the system to be able to run smoothly over an extended period of time. Ensure the functionality of the system able to recover in the most efficient way.)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="maintainability-1">Maintainability<a href="#maintainability-1" class="hash-link" aria-label="Direct link to Maintainability" title="Direct link to Maintainability">​</a></h3>
+<p>(The level of efficiency at with which a system can be modified)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cost-optimization-2">Cost optimization<a href="#cost-optimization-2" class="hash-link" aria-label="Direct link to Cost optimization" title="Direct link to Cost optimization">​</a></h3>
+<p>(This refers to the optimization of cost at various levels and thereby reducing the Total Cost of Ownership)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="governance-regulations-related-compliance">Governance (regulations related, compliance)<a href="#governance-regulations-related-compliance" class="hash-link" aria-label="Direct link to Governance (regulations related, compliance)" title="Direct link to Governance (regulations related, compliance)">​</a></h3>
+<p>(The ability of the system to adhere and comply to regulations defined by legal and industry standards)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="availability-1">Availability<a href="#availability-1" class="hash-link" aria-label="Direct link to Availability" title="Direct link to Availability">​</a></h3>
+<p>(The degree at which the system is able to serve its intended purpose)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="observability-incident-response-monitoring-testing-1">Observability (Incident response, Monitoring, Testing)<a href="#observability-incident-response-monitoring-testing-1" class="hash-link" aria-label="Direct link to Observability (Incident response, Monitoring, Testing)" title="Direct link to Observability (Incident response, Monitoring, Testing)">​</a></h3>
+<p>(Ability to record and log the internal state of the system and infrastructure and respond to incidents in an optimal manner.)</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting-supportability">Troubleshooting (Supportability?)<a href="#troubleshooting-supportability" class="hash-link" aria-label="Direct link to Troubleshooting (Supportability?)" title="Direct link to Troubleshooting (Supportability?)">​</a></h3>
+<p>(The ability to respond and resolve incidents in an efficient manner. Ability of the system to provide information helpful for identifying and resolving issues when it fails (1st line of support to hotfix))</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/99x-wow/docs/facilitated-teams/delivery/work-instructions/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">99x Wow (Way of Work)</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/99x-wow/docs/facilitated-teams/engineering/architecting/architecting-new-products"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Architecting new products</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#abstract-and-introduction" class="table-of-contents__link toc-highlight">Abstract and Introduction</a><ul><li><a href="#abstract" class="table-of-contents__link toc-highlight">Abstract</a></li><li><a href="#introduction" class="table-of-contents__link toc-highlight">Introduction</a></li></ul></li><li><a href="#architecture-process" class="table-of-contents__link toc-highlight">Architecture process</a></li><li><a href="#architecture-views" class="table-of-contents__link toc-highlight">Architecture Views</a><ul><li><a href="#business-architecture" class="table-of-contents__link toc-highlight">Business Architecture</a></li><li><a href="#product-architecture" class="table-of-contents__link toc-highlight">Product Architecture</a></li><li><a href="#infrastructure-architecture" class="table-of-contents__link toc-highlight">Infrastructure Architecture</a></li><li><a href="#production-architecture" class="table-of-contents__link toc-highlight">Production Architecture</a></li></ul></li><li><a href="#quality-attributes-definitions" class="table-of-contents__link toc-highlight">Quality Attributes Definitions</a><ul><li><a href="#functional-suitability-isoise-25010-refer" class="table-of-contents__link toc-highlight">Functional Suitability (ISO/ISE 25010, refer)</a></li><li><a href="#usability" class="table-of-contents__link toc-highlight">Usability</a></li><li><a href="#extensibility--agility" class="table-of-contents__link toc-highlight">Extensibility | Agility</a></li><li><a href="#compatibility-integrations" class="table-of-contents__link toc-highlight">Compatibility (Integrations)</a></li><li><a href="#productization-1" class="table-of-contents__link toc-highlight">Productization</a></li><li><a href="#performance" class="table-of-contents__link toc-highlight">Performance</a></li><li><a href="#efficiency" class="table-of-contents__link toc-highlight">Efficiency</a></li><li><a href="#security-1" class="table-of-contents__link toc-highlight">Security</a></li><li><a href="#privacy" class="table-of-contents__link toc-highlight">Privacy</a></li><li><a href="#reliability" class="table-of-contents__link toc-highlight">Reliability</a></li><li><a href="#functional-stability" class="table-of-contents__link toc-highlight">Functional stability</a></li><li><a href="#maintainability-1" class="table-of-contents__link toc-highlight">Maintainability</a></li><li><a href="#cost-optimization-2" class="table-of-contents__link toc-highlight">Cost optimization</a></li><li><a href="#governance-regulations-related-compliance" class="table-of-contents__link toc-highlight">Governance (regulations related, compliance)</a></li><li><a href="#availability-1" class="table-of-contents__link toc-highlight">Availability</a></li><li><a href="#observability-incident-response-monitoring-testing-1" class="table-of-contents__link toc-highlight">Observability (Incident response, Monitoring, Testing)</a></li><li><a href="#troubleshooting-supportability" class="table-of-contents__link toc-highlight">Troubleshooting (Supportability?)</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Our Products</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.teamon.online/99x" target="_blank" rel="noopener noreferrer" class="footer__link-item">Team On Cloud<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://labs.99x.io/" target="_blank" rel="noopener noreferrer" class="footer__link-item">99x Labs<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://web.facebook.com/99xio" target="_blank" rel="noopener noreferrer" class="footer__link-item">Facebook<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://x.com/99x_io" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.instagram.com/99x.io/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Instagram<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/company/99xio/" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://99x.io/blog" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://github.com/99x" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 2024 - 99x All Rights Reserved.</div></div></div></footer></div>
+</body>
+</html>
