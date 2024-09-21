@@ -72,7 +72,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      image: "img/99x-social-card.png",
       navbar: {
         title: "WoW",
         logo: {
@@ -80,7 +80,7 @@ const config = {
           src: "img/logo.png",
         },
         items: [
-          { to: "/docs/intro", label: "Knowlege Base", position: "right" },
+          { to: "/docs/intro", label: "Knowledge Base", position: "right" },
           {
             href: "https://github.com/chamalasela/99x-wow",
             label: "Contribute",
