@@ -63,9 +63,9 @@ export default function HomepageFeatures() {
     <section className={styles.frameworksWrapper}>
       <div className="container container-xxl">
         <div>
-          <h4 className={styles.frameworksTitleSub}>The knowledge base</h4>
+          <h3 className={styles.frameworksTitleSub}>The knowledge base</h3>
           <h2 className={styles.frameworksTitle}>
-            Your product’s core delivered in days, not months
+            Unlocking Xian's Product Design Insights for Everyone
           </h2>
         </div>
         <div>
