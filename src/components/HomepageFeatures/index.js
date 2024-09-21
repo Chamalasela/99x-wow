@@ -9,37 +9,39 @@ const FeatureList = [
     Svg: require("@site/static/img/icon-1.svg").default,
     url: "/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework",
     description: (
-      <>Streamlining Processes for On-Time, Quality Delivery</>
+      <>Streamlining Processes for Successful On-time Quality Delivery</>
     ),
   },
   {
     title: "Engineering Excellence Framework",
     Svg: require("@site/static/img/icon-2.svg").default,
     url: "/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework",
-    description: (
-      <>
-        A Blueprint for Achieving Technical Mastery
-      </>
-    ),
+    description: <>A Blueprint for Achieving Technical Mastery</>,
   },
   {
     title: "Well Architecture Framework",
     Svg: require("@site/static/img/icon-3.svg").default,
     url: "/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework",
-    description: <>Ensuring Best Practices for Robust System Design</>,
+    description: (
+      <>Xians Guide to Ensuring Best Practices for Robust System Design</>
+    ),
   },
   {
     title: "Product Health Review Guidelines",
     Svg: require("@site/static/img/icon-4.svg").default,
     url: "/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework",
-    description: <>Structured Reviews to Maximize Product Longevity.</>,
+    description: (
+      <>
+        Structured Reviews Process to Maximize Product Quality and Compliance.
+      </>
+    ),
   },
   {
     title: "Winning Product Platform",
     Svg: require("@site/static/img/icon-5.svg").default,
     url: "/docs/facilitated-teams/engineering/architecting/99x-well-architected-framework",
-    description: <>A Platform Designed for Market-Leading Products.</>,
-  }
+    description: <>A How to Guide on Designing for Market-Leading Products.</>,
+  },
 ];
 
 function Feature({ Svg, title, url, description }) {

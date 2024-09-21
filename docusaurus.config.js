@@ -21,7 +21,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: "chamalasela", // Usually your GitHub org/user name.
-  projectName: "99x-way-of-work", // Usually your repo name.
+  projectName: "99x-wow", // Usually your repo name.
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -82,7 +82,7 @@ const config = {
         items: [
           { to: "/docs/intro", label: "Knowlege Base", position: "right" },
           {
-            href: "https://github.com/99x/architecture.99x.io",
+            href: "https://github.com/chamalasela/99x-wow",
             label: "Contribute",
             position: "right",
           },
@@ -134,7 +134,7 @@ const config = {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://github.com/99x",
               },
             ],
           },
