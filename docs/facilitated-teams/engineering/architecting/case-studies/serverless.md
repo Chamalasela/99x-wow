@@ -1,4 +1,0 @@
----
-id: serverless
-title: Serverless
----

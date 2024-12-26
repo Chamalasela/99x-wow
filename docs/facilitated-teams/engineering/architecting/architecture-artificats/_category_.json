@@ -1,0 +1,8 @@
+{
+  "label": "Architecture artifacts",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Essential artifacts for better software architecture"
+  }
+}
