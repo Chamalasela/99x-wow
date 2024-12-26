@@ -1,4 +1,0 @@
----
-id: secops
-title: SecOps
----

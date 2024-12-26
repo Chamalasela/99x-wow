@@ -1,4 +1,0 @@
----
-id: microservices
-title: Microservices
----
